@@ -1,13 +1,544 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  
+::-webkit-scrollbar-thumb {
+    background-color: #ff4d30;
+    border-radius: 20px;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 5px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+*{
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d30 #fff;
+    scroll-behavior: smooth;
+}
+
+
+#root{
+    background-color: #fff;
+}
+
+select:focus, input:focus{
+    outline: none;
+}
+
+#booking-sec{
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.1);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.mobile-nav-ul-li{
+    @apply text-center py-[10px] orange-hover;
+}
+
+.transparent-bg{
+    background-color: hsla(0,0%,100%,.92);
+}
+
+#team-members > .grid-item{
+    box-shadow: 0 20px 10px 0 rgba(0,0,0,.08);
+}
+
+.desktop-nav-ul-li{
+    @apply  inline-block orange-hover;
+}
+
+.footer-ul{
+    @apply text-center mb-[70px] font-[400];
+}
+
+.footer-ul-li{
+    @apply mb-[10px];
+}
+
+.footer-ul-li, .contact-a{
+    @apply orange-hover;
+}
+
+.footer-ul-h3{
+    @apply font-[700] text-[1.5rem] mb-[10px];
+}
+
+.svg-orange-hover{
+    @apply hover:fill-[#ff4d30];
+}
+.orange-fill{
+    @apply fill-[#ff4d30]
+}
+
+#working-hours > li:hover{
+    color: initial;
+}
+
+#booking-sec > form label{
+    font-weight: 900;
+}
+
+/* this style is for inputs in booking and personal info reservation components */
+.booking-reserve-input{
+    @apply mt-[10px] mb-[20px] py-[10px] px-[15px] rounded-[3px] border border-[#ccd7e6] border-solid w-[100%]
+}
+
+#personal-info-div{
+    /* @apply text-black */
+}
+
+#reserve-details input[type='time']{
+    @apply outline outline-1 outline-[#8f8f9d] w-[90px] h-[20px] ml-[.5rem] text-center
+}
+
+#reserve-details h4, #reserve-details h5, #reserve-details h5 + div{
+    @apply reserve-modal-65:flex reserve-modal-65:items-center
+}
+
+#reserve-details h5 + div, #reserve-time-data p{
+    @apply reserve-modal-65:pl-[1.5rem]
+}
+
+#reserve-details h5{
+    color: black;
+}
+
+.orange-hover{
+    @apply hover:text-[#ff4d30] transition-all ease-in-out duration-300;
+}
+
+.orange-bg-hover{
+    @apply hover:bg-[#ff4d30] hover:text-white transition-colors ease-in-out duration-300;
+}
+
+.orange-btn{
+    @apply bg-[#ff4d30] text-[white] py-[.5rem] px-[1.5rem];
+}
+
+.pickup-info, #reserve-details input[type='time']{
+    @apply text-[#777777] font-[500];
+}
+
+.testimonial-card{
+    box-shadow:  0 20px 40px 0 rgba(0,0,0,.08);
+}
+
+.text-default-orange{
+    @apply text-[#ff4d30]
+}
+
+@media (max-width: 950px) {
+    #contact-section > div:first-child, #contact-details form > label{
+        text-align: center;
+    }
+
+    #contact-div-flex > div:first-child{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #contact-div-flex > div:last-child{
+        margin-top: 50px;
+    }
+
+    #contact-div-flex > div:first-child {
+        max-width: 500px;
+    }
+}
+
+@media (max-width:520px) {
+    .about-icon-text > div:first-child{
+        margin: 0 auto;
+    }
+}
+
+@media (max-width:800px) {
+    #main-car-div, #city-img-div{
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .testimonial-card:not(.testimonial-card:first-child){
+        /* min-width: 100%; */
+        display: none;
+    }
+}
+
+@media (max-width:650px) {
+    .reserve-icon{
+        display: none;
+    }
+}
+
+.reserve-bg{
+    background-color: rgba(0,0,0,.3);
+}
+
+@media (min-width:650px) {
+    #personal-info-div div:not(.exclude-width){
+        width: 47.9%;
+    }
+}
+
+@media (min-width:790px) {
+    #personal-info-div div:not(.exclude-width){
+        width: 48.3%;
+    }
+}
+
+#reserveBtn{
+    @apply px-[.2rem] py-4 outline outline-1 outline-[#ff0];
+}
+
+#car-details > div{
+    @apply flex items-center justify-center py-[8px];
+}
+#car-details > div:not(:last-child){
+    border-bottom: 2px solid #706f7b;
+}
+
+
+#car-details{
+    @apply border-2 border-solid border-[#706f7b];
+    border-top: none;
+}
+
+#car-details > div > span{
+    @apply w-[50%]
+}
+
+#car-details > div > span:first-child{
+    border-right: 2px solid #706f7b;
+}
+
+#fleet_btns > button:first-child{
+    margin-top: 0;
+}
+
+@media (max-width:700px) {
+    #currentModel_details{
+        margin: 70px auto;
+    }
+}
+
+@media (min-width:700px) {
+    #personal-info-div div:not(.exclude-width){
+        width: 48%;
+    }
+
+    #car_car-details {
+        grid-template-columns: 2fr 1fr;
+        column-gap: 5rem;
+    }
+
+    #car_car-details > div:first-child {
+        width: 120%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width:1051px) {
+    #car_car-details {
+        justify-items: end;
+    }
+
+    #fleet-details {
+        grid-template-columns: 1fr 3fr;
+    }
+
+    #fleet-details {
+        gap: 1rem;
+    }
+
+    #fleet-details > div {
+        margin: 0;
+    }
+}
+
+@media (min-width:1145px) {
+    #fleet-details {
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width:1175px) {
+    #fleet-details {
+        gap: 2rem;
+    }
+}
+
+@media (min-width:1195px) {
+    #fleet-details {
+        gap: 2.5rem;
+    }
+}
+
+@media (min-width:1220px) {
+    #car_car-details {
+        gap: 0;
+    }
+}
+
+@media (min-width:550px) {
+    #save-big > h2{
+        @apply text-[3.5rem];
+    }
+    #save-big > p{
+        @apply text-[1.5rem];
+    }
+}
+
+@media (min-width: 350px) {
+    #why-choose-us > h2 {
+        @apply max-w-[280px] mx-auto;
+    }
+}
+
+@media (min-width: 430px) {
+    #why-choose-us > h2 {
+        @apply max-w-[420px];
+    }
+}
+
+@media (min-width: 520px) {
+    #why-choose-us > h2 {
+        @apply max-w-[510px];
+    }
+    #why-choose-us > p{
+        @apply max-w-[530px];
+    }
+}
+
+#why-choose-us > button svg{
+    @apply text-[1.4rem];
+}
+#why-choose-us > button {
+    @apply text-[1rem] p-4 my-[30px] mx-auto font-[900];
+}
+
+@media(min-width: 1000px) {
+    #why-choose-us button{
+        @apply booking-grid-3:ml-0;
+    }
+
+    #why-choose-us h2{
+        @apply mx-0
+    }
+}
+
+/* faq */
+.faq-answer{
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 500ms ease-in-out, max-height 500ms ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq-answer.active{
+    transform: scaleY(1);
+    max-height: 1000px; 
+}
+
+.faq-answer, .faq-question {
+    @apply px-[2rem];
+}
+
+.faq-question:not(:first-child){
+    border-top: 1px solid rgb(236, 234, 234);;
+}
+.faq-answer.active, .faq-question{
+    @apply py-[20px];
+}
+
+.faq-question.active {
+    box-shadow: 0 10px 15px 0 rgba(255,83,48,.35);
+}
+
+#faq{
+    @apply bg-white max-w-[820px] w-[100%] my-[50px] mx-auto relative;
+    font-family: Rubik, sans-serif;
+    box-shadow: 0 10px 15px 0 rgba(236, 232, 230, 0.774);
+}
+
+#download-btns-div > button{
+    @apply max-w-[200px] block
+}
+
+@media (max-width:549px) {
+    #download-btns-div > button{
+        @apply mx-auto my-[20px]
+    }
+}
+
+@media (max-width:700px) {
+    #download_text {
+        @apply mx-auto text-center;
+    }
+    #download-btns-div{
+        @apply justify-center;
+    }
+    #download-section #bg-div{
+        @apply hidden top-0 left-0 z-10 right-0;
+    }
+}
+
+@media (min-width: 701px) {
+    #download_text{
+        @apply text-left w-[100%];
+        z-index: 1;
+    }
+
+    #download-wrapper-text{
+        @apply mx-auto relative min-w-[590px];
+        transform: translateY(30);
+    }
+
+    #download-section{
+        @apply flex items-center;
+        padding-top: 0;
+    } 
+
+    #bg-div{
+        transform: translateX(-28%) translateY(8%);
+    }
+}
+
+@media (min-width: 800px) {
+    #bg-div{
+        transform: translateX(-25%) translateY(8%);
+    }
+}
+
+@media (min-width: 850px) {
+    #bg-div{
+        transform: translateX(-20%) translateY(8%);
+    }
+}
+
+@media (min-width: 900px) {
+    #bg-div{
+        transform: translateX(-15%) translateY(8%);
+    }
+}
+
+@media (min-width: 950px) {
+    #bg-div{
+        transform: translateX(-10%) translateY(8%);
+    }
+}
+
+@media (min-width: 1040px) {
+    #bg-div{
+        transform: translateX(-5%) translateY(8%);
+    }
+}
+
+@media (min-width: 1080px) {
+    #bg-div{
+        transform: translateX(0) translateY(8%);
+    }
+}
+
+@media (max-width:800px) {
+    header{
+        @apply absolute top-0 left-0 z-10 right-0;
+    }
+    
+    #hero_context h4, #hero_context h1, #hero_context p, #hero_btns{
+        @apply mx-auto
+    }
+}
+
+#hero_btns > button {
+    @apply py-[15px] font-[900] w-[80%];
+}
+
+#hero_context > div:first-child > div:first-child > *:not(#hero_btns){
+    max-width: 560px;
+}
+
+#hero_btns > button:last-child {
+    @apply py-[30px];
+}
+
+@media (max-width:450px) {
+    #hero_btns > button{
+        @apply mx-auto
+    }
+    #hero_btns{
+        @apply max-w-[350px]
+    }
+}
+
+@media (min-width:450px) {
+    #hero_btns{
+        @apply flex gap-4 max-w-[400px]
+    }
+}
+
+
+
+/* header / hero positioning postioning.. */
+
+header, #main-car-div{
+    @apply absolute
+}
+
+header{
+    @apply w-[100%] z-[1000] bg-transparent
+}
+
+#main-car-div > img{
+    @apply w-[100%]
+}
+
+#main-car-div {
+    @apply top-[10%] right-0 z-[10] w-[62%] max-w-[750px]
+}
+
+#city-img-wrapper{
+    @apply absolute top-0 right-0
+}
+
+#hero_context > div:first-child > div:first-child{
+    @apply relative z-[100]
+}
+
+#hero_context{
+    @apply pt-[200px]
+}
+
+
+
+
+@media (min-width:950px) {
+    #main-car-div {
+        @apply top-[0] 
+    }
+}
+
+@media (min-width:1050px) {
+    #main-car-div {
+        @apply top-[-5%] 
+    }
+}
+
+@media (min-width:1160px) {
+    #main-car-div {
+        @apply top-[-10%] 
+    }
 }
